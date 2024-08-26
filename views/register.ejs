@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyDrive Rentals - Vehicle Registration</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <!-- Your custom CSS -->
+    <link rel="stylesheet" href="./Register.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a href="./" class="navbar-brand"><i class="fas fa-car"></i> EasyDrive Rentals</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="./"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./register"><i class="fas fa-pen"></i> Register A Vehicle</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./rent"><i class="fas fa-suitcase"></i> Rent A Vehicle</a>
+                </li>
+                <% if (loggedIn) { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./dashboard"><i class="fas fa-user"></i> <%= username %></a>
+                    </li>
+                <% } else { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./login"><i class="fas fa-user"></i> Log In</a>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="service-container">
+                    <div class="service-details">
+                        <h2>Vehicle Registration</h2>
+                        <p>Unlock the potential of your vehicle by registering it with EasyDrive Rentals. Earn passive
+                            income by renting it out to our community of users.</p>
+                        <p>Our registration process is simple and hassle-free. Get started now and turn your vehicle
+                            into a lucrative asset!</p>
+                        <button class="btn btn-primary btn-vehicle" onclick="showRegistrationForm()">Register Your Vehicle</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="registration-form" id="registrationForm">
+                    <h3>Vehicle Registration Form</h3>
+                    <form action="/register" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="vehicleMake">Vehicle Make:</label>
+                            <input type="text" class="form-control" id="vehicleMake" name="vehicleMake" placeholder="Enter vehicle make" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="vehicleModel">Vehicle Model:</label>
+                            <input type="text" class="form-control" id="vehicleModel" name="vehicleModel" placeholder="Enter vehicle model" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="vehicleType">Vehicle Type:</label>
+                            <input type="text" class="form-control" id="vehicleType" name="vehicleType" placeholder="Enter vehicle type" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registrationNumber">Registration Number:</label>
+                            <input type="text" class="form-control" id="registrationNumber" name="registrationNumber" placeholder="Enter registration number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="vehicleImage">Vehicle Image:</label>
+                            <input type="file" class="form-control-file" id="vehicleImage" name="vehicleImage" accept="image/*" required>
+                            <small class="form-text text-muted">Please upload an image of the vehicle.</small>
+                        </div>
+                        <hr>
+                        <h3>User Details</h3>
+                        <div class="form-group">
+                            <label for="userName">Owner's Name:</label>
+                            <input type="text" class="form-control" id="userName" name="userName" placeholder="Enter owner's name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="userEmail">Owner's Email:</label>
+                            <input type="email" class="form-control" id="userEmail" name="userEmail" placeholder="Enter owner's email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Location:</label>
+                            <input type="text" class="form-control" id="location" name="location" placeholder="Enter location of the vehicle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneNumber">Owner's Phone Number:</label>
+                            <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Enter owner's phone number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="rentalCost">Rental Cost per Day (in USD):</label>
+                            <input type="number" class="form-control" id="rentalCost" name="rentalCost" placeholder="Enter rental cost per day" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register Vehicle</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showRegistrationForm() {
+            document.getElementById("registrationForm").style.display = "block";
+        }
+    </script>
+</body>
+</html>

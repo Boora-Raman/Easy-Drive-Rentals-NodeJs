@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyDrive Rentals - Vehicle Rental</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="./Rent.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a href="./" class="navbar-brand"><i class="fas fa-car"></i> EasyDrive Rentals</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="./"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./register"><i class="fas fa-pen"></i> Register A Vehicle</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./rent"><i class="fas fa-suitcase"></i> Rent A Vehicle</a>
+                </li>
+                <% if (loggedIn) { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./dashboard"><i class="fas fa-user"></i> <%= username %></a>
+                    </li>
+                <% } else { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./login"><i class="fas fa-user"></i> Log In</a>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="service-container">
+                    <div class="service-details">
+                        <h2>Vehicle Rental</h2>
+                        <p>Rent a vehicle from EasyDrive Rentals for your travel needs. Explore our range of vehicles
+                            available for rent and enjoy a hassle-free experience.</p>
+                        <p>Choose the vehicle type and location that suits your requirements and start your journey today!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="btn-container">
+                    <a href="/vehicles" class="btn btn-primary btn-vehicle">Rent A Vehicle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showRentForm() {
+            document.getElementById('rentForm').style.display = 'block';
+        }
+
+        function selectVehicle(type) {
+            document.querySelector('.btn-vehicle').innerText = 'Vehicle Selected: ' + type;
+            document.getElementById('btnNext').style.display = 'inline-block';
+            document.getElementById('btnNext').removeAttribute('disabled');
+        }
+
+        function rentVehicle() {
+            // Get the selected vehicle type
+            const vehicleType = document.querySelector('.btn-vehicle').innerText.split(': ')[1];
+
+            // Get the entered location
+            const location = document.getElementById('location').value;
+
+            // Redirect to the route with the selected vehicle type and location
+            window.location.href = `/rent?vehicleType=${vehicleType}&location=${location}`;
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+*
+    {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+          font-family: Arial, sans-serif;
+          background-color: #f8f9fa;
+          color: #333;
+
+      }
+
+      .container
+      {
+        margin-top: 15px;
+      }
+      .service-container {
+          background-color: #fff;
+          padding: 30px;
+          border-radius: 8px;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+      .service-details {
+          text-align: center;
+      }
+      
+        .navbar .fas {
+            margin-right: 5px;
+            font-size: 20px;
+        }
+        .navbar {
+        background-color: #007bff;
+        padding: 10px 20px;
+        color: #fff;
+        }
+        
+        .navbar-brand {
+        font-size: 24px;
+        margin-right: auto;
+        color: #fff;
+        text-decoration: none;
+        }
+        
+        .navbar-brand:hover {
+        color: #fff;
+        text-decoration: none;
+        }
+        
+        .navbar a.navbar-link {
+        color: #fff;
+        text-decoration: none;
+        margin-right: 20px;
+        font-weight: bold;
+        }
+        
+        .navbar a.navbar-link:hover {
+        color: #f8f9fa;
+        text-decoration: none;
+        }
+        
+        .navbar .bi {
+        margin-right: 5px;
+        font-size: 20px;
+        }
+
+        .btn-container {
+
+            width: 80%;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .btn-vehicle {
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        .btn-next {
+            margin-top: 15px;
+            display: none; /* Initially hide the Next button */
+        }
+
+        .navbar-brand, .nav-link {
+            color: #fff;
+            font-weight: bold;
+        }
+        
+        .navbar-toggler {
+            border: none;
+        }
+        
+        .navbar-toggler:focus {
+            outline: none;
+        }
+        
