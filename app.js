@@ -24,7 +24,7 @@ app.use(session({
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-mongoose.connect('mongodb+srv://booraraman2004:ramanBoora@cluster0.xaz6fpx.mongodb.net/RentalData', {
+mongoose.connect('//yourDataBase_URI', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
